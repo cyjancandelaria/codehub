@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CodeHub</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #0b0b0b;
+  color: #f5f5f5;
+}
+
+header {
+  background: #111;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 3px solid #f5c400;
+}
+
+.logo {
+  width: 65px;
+  height: 65px;
+  background: #f5c400;
+  color: #111;
+  font-weight: bold;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}  
+
+h1 {
+  margin: 0;
+  color: #f5c400;
+  font-size: 50px;
+  line-height: 1;
+}
+
+main {
+  max-width: 1000px;
+  margin: auto;
+  padding: 30px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  border-left: 6px solid #f5c400;
+}
+
+.section h2:hover {
+  background: #222;
+}
+
+.content {
+  display: none;
+  background: #121212;
+  padding: 15px;
+  border-radius: 0 0 8px 8px;
+}
+
+.item {
+  background: #1e1e1e;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.item:hover {
+  background: #262626;
+}
+
+.item-content {
+  display: none;
+  margin-top: 10px;
+}
+
+pre {
+  background: #000;
+  padding: 12px;
+  border-radius: 6px;
+  color: #f5c400;
+  overflow-x: auto;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="CodeHub Logo">
+  </div>
+  <h1>CodeHub</h1>
+</header>
+
+<main>
+
+<!-- ================= ALGORITHMS ================= -->
+<div class="section">
+<h2 onclick="toggleSection(this)">Algorithms (Step-by-Step)</h2>
+<div class="content">
+
+<div class="item" onclick="toggleItem(this)">Bubble Sort
+<div class="item-content">
+<pre>
+Algorithm: Bubble Sort
+1. Start
+2. Repeat until no swaps occur
+3. Compare adjacent elements
+4. If left element is greater than right element, swap them
+5. Move to the next pair
+6. End when list is sorted
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Selection Sort
+<div class="item-content">
+<pre>
+Algorithm: Selection Sort
+1. Start
+2. Set the first element as minimum
+3. Compare minimum with remaining elements
+4. Update minimum if smaller element is found
+5. Swap minimum with first element
+6. Repeat for remaining list
+7. Stop
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Insertion Sort
+<div class="item-content">
+<pre>
+Algorithm: Insertion Sort
+1. Start
+2. Take the second element
+3. Compare it with elements before it
+4. Shift larger elements one position to the right
+5. Insert element at correct position
+6. Repeat for all elements
+7. Stop
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Linear Search
+<div class="item-content">
+<pre>
+Algorithm: Linear Search
+1. Start
+2. Take target value
+3. Compare target with each element
+4. If match is found, return position
+5. If end is reached, report not found
+6. Stop
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Binary Search
+<div class="item-content">
+<pre>
+Algorithm: Binary Search
+1. Start
+2. Set low and high positions
+3. Find middle element
+4. If middle equals target, return position
+5. If target is smaller, search left half
+6. If target is larger, search right half
+7. Repeat until found or range is empty
+8. Stop
+</pre>
+</div></div>
+  
+<div class="item" onclick="toggleItem(this)">Merge Sort
+<div class="item-content">
+<pre>
+Algorithm: Merge Sort
+1. Start
+2. Divide the list into two halves
+3. Recursively sort the left half
+4. Recursively sort the right half
+5. Merge the two sorted halves
+6. Stop
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Quick Sort
+<div class="item-content">
+<pre>
+Algorithm: Quick Sort
+1. Start
+2. Choose a pivot element
+3. Partition elements smaller than pivot to the left
+4. Partition elements greater than pivot to the right
+5. Recursively apply steps to both sides
+6. Stop
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Depth First Search (DFS)
+<div class="item-content">
+<pre>
+Algorithm: Depth First Search
+1. Start
+2. Select a starting node
+3. Visit the node and mark it as visited
+4. Visit an unvisited adjacent node
+5. Repeat until no unvisited nodes remain
+6. Stop
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Breadth First Search (BFS)
+<div class="item-content">
+<pre>
+Algorithm: Breadth First Search
+1. Start
+2. Select a starting node
+3. Visit the node and enqueue it
+4. Visit all adjacent unvisited nodes
+5. Dequeue and repeat until queue is empty
+6. Stop
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Fibonacci Sequence
+<div class="item-content">
+<pre>
+Algorithm: Fibonacci Sequence
+1. Start
+2. Set first number to 0 and second number to 1
+3. Add the two previous numbers
+4. Store the result
+5. Repeat until sequence is complete
+6. Stop
+</pre>
+</div></div>
+
+</div>
+</div>
+
+<!-- ================= PSEUDOCODE ================= -->
+<div class="section">
+<h2 onclick="toggleSection(this)">Pseudocode (Connected to Algorithms)</h2>
+<div class="content">
+
+<div class="item" onclick="toggleItem(this)">Bubble Sort Pseudocode
+<div class="item-content">
+<pre>
+START
+SET swapped to true
+WHILE swapped is true
+  SET swapped to false
+  FOR each adjacent pair in list
+    IF first number > second number
+      SWAP them
+      SET swapped to true
+END WHILE
+STOP
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Selection Sort Pseudocode
+<div class="item-content">
+<pre>
+START
+FOR each position in list
+  ASSUME current position is minimum
+  FOR remaining elements
+    IF smaller element is found
+      UPDATE minimum
+  SWAP minimum with current position
+END FOR
+STOP
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Insertion Sort Pseudocode
+<div class="item-content">
+<pre>
+START
+FOR each element from second position
+  STORE current value
+  SHIFT larger elements to the right
+  INSERT value at correct position
+END FOR
+STOP
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Linear Search Pseudocode
+<div class="item-content">
+<pre>
+START
+FOR each element in list
+  IF element equals target
+    DISPLAY found
+    STOP
+END FOR
+DISPLAY not found
+STOP
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Binary Search Pseudocode
+<div class="item-content">
+<pre>
+START
+SET low and high
+WHILE low is less than or equal to high
+  FIND middle element
+  IF middle equals target
+    DISPLAY found
+    STOP
+  ELSE IF target is smaller
+    MOVE high left
+  ELSE
+    MOVE low right
+END WHILE
+DISPLAY not found
+STOP
+</pre>
+</div></div>
+  
+<div class="item" onclick="toggleItem(this)">Merge Sort Pseudocode
+<div class="item-content">
+<pre>
+START
+IF list has more than one element
+  DIVIDE list into two halves
+  SORT left half
+  SORT right half
+  MERGE both halves
+END IF
+STOP
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Quick Sort Pseudocode
+<div class="item-content">
+<pre>
+START
+IF list has more than one element
+  SELECT a pivot
+  MOVE smaller elements to left of pivot
+  MOVE larger elements to right of pivot
+  APPLY process to both sides
+END IF
+STOP
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">DFS Pseudocode
+<div class="item-content">
+<pre>
+START
+VISIT starting node
+MARK node as visited
+FOR each adjacent node
+  IF not visited
+    VISIT node
+END FOR
+STOP
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">BFS Pseudocode
+<div class="item-content">
+<pre>
+START
+ENQUEUE starting node
+WHILE queue is not empty
+  DEQUEUE node
+  VISIT node
+  ENQUEUE all unvisited adjacent nodes
+END WHILE
+STOP
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Fibonacci Pseudocode
+<div class="item-content">
+<pre>
+START
+SET first = 0, second = 1
+DISPLAY first and second
+WHILE next number is needed
+  next = first + second
+  DISPLAY next
+  UPDATE first and second
+END WHILE
+STOP
+</pre>
+</div></div>
+
+</div>
+</div>
+
+<!-- ================= DATA STRUCTURES ================= -->
+<div class="section">
+<h2 onclick="toggleSection(this)">Data Structures (Python Code)</h2>
+<div class="content">
+
+<div class="item" onclick="toggleItem(this)">Stack
+<div class="item-content">
+<pre>
+stack = []
+
+stack.append(10)
+stack.append(20)
+stack.pop()
+
+print(stack)
+</pre>
+</div></div>
+
+<div class="item" onclick="toggleItem(this)">Queue
+<div class="item-content">
+<pre>
+from collections import deque
+
+queue = deque()
+queue.append(1)
+queue.append(2)
+queue.popleft()
+
+print(queue)
+</pre>
+</div></div>
+  
+<div class="item" onclick="toggleItem(this)">Array
+<div class="item-content">
+<pre>
+arr = [10, 20, 30, 40]
+arr.append(50)
+arr.append(50)
+arr[1] = 25
+arr.remove(30)
+print(arr)
+</pre>
+</div>
+</div>  
+
+<div class="item" onclick="toggleItem(this)">Binary Tree Traversal
+<div class="item-content">
+<pre>
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def inorder(root):
+    if root:
+        inorder(root.left)
+        print(root.data)
+        inorder(root.right)
+</pre>
+</div></div>
+
+</div>
+</div>
+
+<!-- ================= GROUP ================= -->
+<div class="section">
+<h2 onclick="toggleSection(this)">Group Members in BSIT-2B</h2>
+<div class="content">
+<ul>
+<li>Abuan, Melissa</li>
+<li>Coloma, Jake</li>  
+<li>Coloma, Jake</li>
+<li>De La Cruz, Joelyn</li>
+<li>Galzote, Margareth</li>
+<li>Tria, Francine</li>
+<li>Ubod, Janell Patricia</li>  
+<li>Vendiola, Lady Princess</li>
+<li>Villanueva, Danica Marie</li>
+<li>Zarasate, Jennefer</li>  
+</ul>
+</div>
+</div>
+
+</main>
+
+<footer>
+CodeHub © 2025 — Algorithms & Data Structures
+</footer>
+
+<script>
+function toggleSection(h){
+  const c = h.nextElementSibling;
+  c.style.display = c.style.display === "block" ? "none" : "block";
+}
+
+function toggleItem(i){
+  const c = i.querySelector(".item-content");
+  c.style.display = c.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
