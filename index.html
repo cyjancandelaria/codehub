@@ -477,8 +477,8 @@ stack.pop()
 print(stack)
 </pre>
 
-<button class="run-btn" onclick="runCode(event, 'stack')">Run Code</button>
-<button class="run-btn" onclick="stopCode(event, 'stack')">Stop Code</button>
+<button class="run-btn" data-type="stack">Run Code</button>
+<button class="run-btn stop" data-type="stack">Stop Code</button>
 
 <div class="output" id="output-stack">
 [10]
@@ -498,9 +498,8 @@ queue.popleft()
 
 print(queue)
 </pre>
-
-<button class="run-btn" onclick="runCode(event, 'queue')">Run Code</button>
-<button class="run-btn" onclick="stopCode(event, 'queue')">Stop Code</button>
+<button class="run-btn" data-type="queue">Run Code</button>
+<button class="run-btn stop" data-type="queue">Stop Code</button>
 
 <div class="output" id="output-queue"></div>
   
@@ -517,8 +516,8 @@ arr.remove(30)
 print(arr)
 </pre>
 
-<button class="run-btn" onclick="runCode(event, 'array')">Run Code</button>
-<button class="run-btn" onclick="stopCode(event, 'array')">Stop Code</button>
+<button class="run-btn" data-type="array">Run Code</button>
+<button class="run-btn stop" data-type="array">Stop Code</button>
 
 <div class="output" id="output-array"></div>
 
@@ -552,9 +551,9 @@ def postorder(root):
         print(root.data)
 </pre>
 
-<button class="run-btn" onclick="runCode(event, 'tree')">Run Code</button>
-<button class="run-btn" onclick="stopCode(event, 'tree')">Stop Code</button>
-
+<button class="run-btn" data-type="tree">Run Code</button>
+<button class="run-btn stop" data-type="tree">Stop Code</button>
+  
 <div class="output" id="output-tree"></div>
 
 </div></div>
@@ -598,34 +597,34 @@ function toggleItem(i){
   c.style.display = c.style.display === "block" ? "none" : "block";
 }
 </script>
-<script>
-function runCode(event, type) {
-  event.stopPropagation(); // stops collapse chaos (important af)
-
-  const outputs = {
-    stack: "[10]",
-    queue: "deque([2])",
-    array: "[10, 25, 40, 50, 50]",
-    tree: 
-          "Preorder Traversal:\n20\n10\n30\n\n" +
-          "Inorder Traversal:\n10\n20\n30\n\n" +
-          "Postorder Traversal:\n10\n30\n20"
-
-  };
-
-  const out = document.getElementById("output-" + type);
-  out.textContent = outputs[type];
-  out.style.display = "block";
-}
-</script>
 
 <script>
-function stopCode(event, type) {
-  event.stopPropagation(); // stops collapse chaos again (still important)
+// RUN / STOP buttons
+document.querySelectorAll(".run-btn").forEach(btn => {
+  btn.addEventListener("click", function(e){
+    e.stopPropagation(); // VERY IMPORTANT, stops the toggleItem() from firing
 
-  const out = document.getElementById("output-" + type);
-  out.style.display = "none";
-}
+    const type = btn.dataset.type;
+    const out = document.getElementById("output-" + type);
+
+    if(btn.classList.contains("stop")){
+      out.style.display = "none"; // stop hides output
+    } else {
+      // run shows output
+      const outputs = {
+        stack: "[10]",
+        queue: "deque([2])",
+        array: "[10, 25, 40, 50, 50]",
+        tree: 
+              "Preorder Traversal:\n20\n10\n30\n\n" +
+              "Inorder Traversal:\n10\n20\n30\n\n" +
+              "Postorder Traversal:\n10\n30\n20"
+      };
+      out.textContent = outputs[type];
+      out.style.display = "block";
+    }
+  });
+});
 </script>
 
 </body>
