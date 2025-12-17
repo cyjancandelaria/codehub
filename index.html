@@ -601,28 +601,42 @@ function toggleItem(i){
 
 <script>
 // RUN / STOP buttons
+      const outputs = {
+  stack: "[10]",
+  queue: "deque([2])",
+  array: "[10, 25, 40, 50, 50]",
+  tree: `
+<b>Preorder Traversal:</b><br>
+20<br>
+10<br>
+30<br><br>
+<b>Inorder Traversal:</b><br>
+10<br>
+20<br>
+30<br><br>
+<b>Postorder Traversal:</b><br>
+10<br>
+30<br>
+20
+`
+};
+
 document.querySelectorAll(".run-btn").forEach(btn => {
   btn.addEventListener("click", function(e){
-    e.stopPropagation(); // VERY IMPORTANT, stops the toggleItem() from firing
-
+    e.stopPropagation(); 
     const type = btn.dataset.type;
     const out = document.getElementById("output-" + type);
 
     if(btn.classList.contains("stop")){
-      out.style.display = "none"; // stop hides output
+      out.style.display = "none";
     } else {
-      // run shows output
-      const outputs = {
-        stack: "[10]",
-        queue: "deque([2])",
-        array: "[10, 25, 40, 50, 50]",
-        tree: 
-              "Preorder Traversal:\n20\n10\n30\n\n" +
-              "Inorder Traversal:\n10\n20\n30\n\n" +
-              "Postorder Traversal:\n10\n30\n20"
-      };
-      out.textContent = outputs[type];
-      out.style.display = "block";
+      if(out.style.display === "block"){
+        out.style.display = "none"; // hide if already visible
+      } else {
+        if(type === "tree") out.innerHTML = outputs[type];
+        else out.textContent = outputs[type];
+        out.style.display = "block";
+      }
     }
   });
 });
