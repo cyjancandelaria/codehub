@@ -132,6 +132,11 @@ footer {
   background: #ffd84d;
 }
 
+.run-btn.stop {
+  background: #ff4d4d;
+  color: #111;
+}
+
 .output {
   background: #000;
   color: #00ff88;
@@ -473,6 +478,7 @@ print(stack)
 </pre>
 
 <button class="run-btn" onclick="runCode(event, 'stack')">Run Code</button>
+<button class="run-btn" onclick="stopCode(event, 'stack')">Stop Code</button>
 
 <div class="output" id="output-stack">
 [10]
@@ -494,6 +500,8 @@ print(queue)
 </pre>
 
 <button class="run-btn" onclick="runCode(event, 'queue')">Run Code</button>
+<button class="run-btn" onclick="stopCode(event, 'queue')">Stop Code</button>
+
 <div class="output" id="output-queue"></div>
   
 </div></div>
@@ -510,6 +518,8 @@ print(arr)
 </pre>
 
 <button class="run-btn" onclick="runCode(event, 'array')">Run Code</button>
+<button class="run-btn" onclick="stopCode(event, 'array')">Stop Code</button>
+
 <div class="output" id="output-array"></div>
 
 </div></div>  
@@ -523,14 +533,28 @@ class Node:
         self.left = None
         self.right = None
 
+def preorder(root):
+    if root:
+        print(root.data)
+        preorder(root.left)
+        preorder(root.right)
+
 def inorder(root):
     if root:
         inorder(root.left)
         print(root.data)
         inorder(root.right)
+
+def postorder(root):
+    if root:
+        postorder(root.left)
+        postorder(root.right)
+        print(root.data)
 </pre>
 
 <button class="run-btn" onclick="runCode(event, 'tree')">Run Code</button>
+<button class="run-btn" onclick="stopCode(event, 'tree')">Stop Code</button>
+
 <div class="output" id="output-tree"></div>
 
 </div></div>
@@ -582,12 +606,25 @@ function runCode(event, type) {
     stack: "[10]",
     queue: "deque([2])",
     array: "[10, 25, 40, 50, 50]",
-    tree: "Inorder Traversal:\n10\n20\n30"
+    tree: 
+          "Preorder Traversal:\n20\n10\n30\n\n" +
+          "Inorder Traversal:\n10\n20\n30\n\n" +
+          "Postorder Traversal:\n10\n30\n20"
+
   };
 
   const out = document.getElementById("output-" + type);
   out.textContent = outputs[type];
   out.style.display = "block";
+}
+</script>
+
+<script>
+function stopCode(event, type) {
+  event.stopPropagation(); // stops collapse chaos again (still important)
+
+  const out = document.getElementById("output-" + type);
+  out.style.display = "none";
 }
 </script>
 
