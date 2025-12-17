@@ -116,6 +116,32 @@ footer {
   color: #888;
   font-size: 14px;
 }
+
+.run-btn {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: #f5c400;
+  color: #111;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.run-btn:hover {
+  background: #ffd84d;
+}
+
+.output {
+  background: #000;
+  color: #00ff88;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  display: none;
+}
+
 </style>
 </head>
 
@@ -445,6 +471,13 @@ stack.pop()
 
 print(stack)
 </pre>
+
+<button class="run-btn" onclick="runCode(event, 'stack')">Run Code</button>
+
+<div class="output" id="output-stack">
+[10]
+</div>
+
 </div></div>
 
 <div class="item" onclick="toggleItem(this)">Queue
@@ -459,6 +492,10 @@ queue.popleft()
 
 print(queue)
 </pre>
+
+<button class="run-btn" onclick="runCode(event, 'queue')">Run Code</button>
+<div class="output" id="output-queue"></div>
+  
 </div></div>
   
 <div class="item" onclick="toggleItem(this)">Array
@@ -471,8 +508,11 @@ arr[1] = 25
 arr.remove(30)
 print(arr)
 </pre>
-</div>
-</div>  
+
+<button class="run-btn" onclick="runCode(event, 'array')">Run Code</button>
+<div class="output" id="output-array"></div>
+
+</div></div>  
 
 <div class="item" onclick="toggleItem(this)">Binary Tree Traversal
 <div class="item-content">
@@ -489,6 +529,10 @@ def inorder(root):
         print(root.data)
         inorder(root.right)
 </pre>
+
+<button class="run-btn" onclick="runCode(event, 'tree')">Run Code</button>
+<div class="output" id="output-tree"></div>
+
 </div></div>
 
 </div>
@@ -528,6 +572,22 @@ function toggleSection(h){
 function toggleItem(i){
   const c = i.querySelector(".item-content");
   c.style.display = c.style.display === "block" ? "none" : "block";
+}
+</script>
+<script>
+function runCode(event, type) {
+  event.stopPropagation(); // stops collapse chaos (important af)
+
+  const outputs = {
+    stack: "[10]",
+    queue: "deque([2])",
+    array: "[10, 25, 40, 50, 50]",
+    tree: "Inorder Traversal:\n10\n20\n30"
+  };
+
+  const out = document.getElementById("output-" + type);
+  out.textContent = outputs[type];
+  out.style.display = "block";
 }
 </script>
 
